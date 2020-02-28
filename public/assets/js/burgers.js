@@ -5,7 +5,7 @@ $(function() {
 
         //get burger info from index.handlebars form 
         const newBurger = {
-            burger_name: $("#bur").val().trim(),
+            name: $("#bur").val().trim(),
             devoured: $("[name=devoured]:checked").val().trim()
         };
 

@@ -6,7 +6,7 @@ const burger = require("../models/burger.js");
 
 router.get("/", (req, res) => {
     burger.all(data => {
-        const burgerObj = { burgers: data };
+        let burgerObj = { burgers: data };
         console.log(burgerObj);
         res.render("index", burgerObj);
     });
@@ -24,7 +24,8 @@ router.post("/api/burgers", (req, res) => {
 
 //update condition of burger from !devoured to devoured
 router.put("/api/burgers/:id", (req, res) => {
-    const condition = `id = ${req.params.id}`;
+    // let condition = `id = ${req.params.id}`;
+    let condition = "id = " + req.params.id;
 
     console.log(`condition ${condition}`);
 

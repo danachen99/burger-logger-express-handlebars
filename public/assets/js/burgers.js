@@ -1,10 +1,28 @@
 $(function() {
+    $(".change-dev").on("click", event => {
+        let id = $(this).data("id");
+        let newDev = $(this).data("newdev");
+
+        let devouredState = {
+            devoured: newDev
+        };
+
+        //PUT request 
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT",
+            data: devouredState
+        }).then(() => {
+            console.log(`changed burger boolean to ${newDev}`);
+            location.reload();
+        });
+    });
+
     //create/add burger when submitted
     $(".create-form").on("submit", event => {
         event.preventDefault();
 
         //get burger info from index.handlebars form 
-        const newBurger = {
+        let newBurger = {
             name: $("#bur").val().trim(),
             devoured: $("[name=devoured]:checked").val().trim()
         };
@@ -21,21 +39,5 @@ $(function() {
         );
     });
 
-    $(".change-dev").on("click", event => {
-        const id = $(this).data("id");
-        const newDev = $(this).data("newdev");
 
-        const devouredState = {
-            devoured: newDev
-        };
-
-        //PUT request 
-        $.ajax("/api/burgers/" + id, {
-            type: "PUT",
-            data: devouredState
-        }).then(() => {
-            console.log(`changed burger boolean to ${newDev}`);
-            location.reload();
-        });
-    });
 });

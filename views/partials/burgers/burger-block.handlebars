@@ -1,7 +1,19 @@
-<li>
+<p>
+    {{!-- {{#each burgers}} 
+    {{name}}
+    <button class="change-dev" data-id="{{this.id}}" data-newdev="{{devoured}}">
+		{{#if devoured}}{{else}}DEVOUR!{{/if}}
+	</button>
+    {{/each}} --}}
+
+{{!-- do each since data is stored in an array --}}
+
 	{{name}}
 
 	<button class="change-dev" data-id="{{id}}" data-newdev="{{devoured}}">
 		{{#if devoured}}{{else}}DEVOUR!{{/if}}
 	</button>
-</li>
+
+    
+
+</p>

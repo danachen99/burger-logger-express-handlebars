@@ -1,11 +1,15 @@
 $(function() {
-    $(".change-dev").on("click", event => {
-        let id = $(this).data("id");
-        let newDev = $(this).data("newdev");
+    $(".change-dev").on("click", target => {
+        // let id = $(this).data("id");
+        // let newDev = $(this).data("newdev");
+        let id = event.target.dataset.id;
+        let newDev = event.target.dataset.newdev;
 
         let devouredState = {
             devoured: newDev
         };
+
+        console.log(devouredState)
 
         //PUT request 
         $.ajax("/api/burgers/" + id, {
